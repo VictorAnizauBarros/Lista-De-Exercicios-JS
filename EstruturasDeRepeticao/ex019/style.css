@@ -1,0 +1,15 @@
+.inputQtdNumero{
+    width: 250px;
+    height: 40px;
+    border:none; 
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.botao{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
