@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="medidas">
+        <input type="number"  id="height" placeholder="Digite a sua altura em metros">
+        <select id="sex" required>
+            <option disabled selected>Selecione um Sexo</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+        </select>
+        <button id="showIdealWeight">Peso Ideal</button>
+
+        <div id="result">
+
+        </div>
+    </div>
+    <script>
+        /*Desenvolva um programa que, com base na altura e no sexo de uma pessoa, calcule seu peso ideal  utilizando estruturas de seleção e as seguintes fórmulas:
+        - Para homens: (72.7 * altura) - 58
+        - Para mulheres: (62.1 * altura) - 44.7 
+        */
+        const intpHeight = document.querySelector('#height'); 
+        const inptSex = document.querySelector('#sex'); 
+        const btnShowIdealWeight = document.querySelector('#showIdealWeight'); 
+        const divResult = document.querySelector('#result')
+
+        
+
+        btnShowIdealWeight.addEventListener('click', ()=>{
+            let height = parseFloat(intpHeight.value); 
+            let sex = inptSex.value; 
+            let formula; 
+            switch(sex){
+                case "Masculino":
+                    formula = (72.7 * height) - 58;   
+                    break;
+                case "Feminino":
+                    formula = (62.1 * height) - 44.7; 
+                    break;      
+            }
+            divResult.innerHTML = `
+                O peso ideal é: ${formula.toFixed(2)}
+            `
+        })
+    </script>
+</body>
+</html>

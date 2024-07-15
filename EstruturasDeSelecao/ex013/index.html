@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+<body>
+        <h1>Calculadora Básica:</h1>
+        <p>
+            Nos inputs abaixo, digite dois números e escolha uma das opeções para realizar. 
+        </p>
+
+        <div id="inputs">
+            <input type="number" placeholder="Digite o valor aqui" id="num1">
+            <input type="number" placeholder="Digite o valor aqui" id="num2">
+            
+        </div>
+        <br>
+        <div>
+            <p>
+                Escolha uma das opçoes: <br>
+                1 Adição <br>
+                2 Subtração <br>
+                3 Multiplicação <br>
+                4 Divisão <br>
+            </p>
+            <input type="number" placeholder="Número da Opção" id="option">
+        </div>
+        <br>
+        <button id="showResult">Mostrar</button>
+
+        <div id="result"></div>
+    <script>
+        /*
+             Escreva um programa que exiba as seguintes opções e realize as operações solicitadas em cada uma delas utilizando estruturas de seleção:
+            - Adição
+            - Subtração
+            - Multiplicação
+            - Divisão
+        */
+       const inputNumber1 = document.querySelector('#num1');
+       const inputNumber2 = document.querySelector('#num2');
+       const inputOption = document.querySelector('#option')
+       const btnShowResult= document.querySelector('#showResult'); 
+       const divResult = document.querySelector('#result')
+
+       btnShowResult.addEventListener('click', () =>{
+            let num1 = Number(inputNumber1.value); 
+            let num2 = Number(inputNumber2.value); 
+            let option = Number(inputOption.value); 
+
+            switch(option){
+                case 1: 
+                    let soma = num1 + num2; 
+                    divResult.innerHTML = `
+                        O resultado da soma de ${num1} + ${num2} = ${soma}. 
+                    `;
+                    break; 
+                case 2: 
+                    let subtracao = num1 - num2; 
+                    divResult.innerHTML = `
+                        O resultado da subtração de ${num1} - ${num2} = ${subtracao}.
+                    `;
+                    break; 
+                case 3: 
+                let multiplicacao = num1 * num2; 
+                divResult.innerHTML = `
+                    O resultado da multiplicação de ${num1} X ${num2} = ${multiplicacao}.
+                `; 
+                break;
+                case 4:
+                    let divisao = num1 / num2; 
+                    divResult.innerHTML = `
+                        O resultado da divisão de ${num1} / ${num2} = ${divisao}.
+                    `; 
+
+            }
+       })
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descontos</title>
+    <style>
+        #paiDoResultado{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .resultado{
+            padding: 20px;
+            border : #f3f3f3 solid 1px; 
+
+        }
+    </style>
+</head>
+    <div id="produto">
+        <input type="number" id="preco" placeholder="Digite o valor do produto R$00.00">
+        <select id="categoria" required>
+            <option disabled selected >Selecione uma das categorias</option>
+            <option >A</option>
+            <option >B</option>
+            <option >C</option>
+        </select>
+    </div>
+    <button id="calcDesc">Calcular Desconto</button>
+
+    <div id="paiDoResultado"></div>
+<body>
+    <script>
+         /* Elabore um programa que solicite ao usuário o valor de um produto e sua categoria (A, B ou C). Com base na categoria informada, aplique descontos de 10%, 15% e 20%, respectivamente, sobre o valor do produto e exiba o valor final após o desconto. */
+
+         const inputPreco = document.querySelector('#preco'); 
+         const elSelectCategoria = document.querySelector('#categoria');
+         const btnCalcularDesconto = document.querySelector('#calcDesc'); 
+         const divPaidoResultado = document.querySelector('#paiDoResultado');
+         const divResultado = document.createElement('div');
+
+         btnCalcularDesconto.addEventListener('click', () =>{
+            let preco = parseFloat(inputPreco.value); 
+            let categoria = elSelectCategoria.value;
+            let valorFinal; 
+            let desconto;  
+
+            switch(categoria){
+                case 'A':
+                    desconto = (preco/100)*10;
+                    break; 
+                case 'B': 
+                    desconto = (preco/100)*15;
+                    break; 
+                case 'C':
+                    desconto = (preco/100)*20; 
+                    break;  
+            }
+            valorFinal = preco - desconto; 
+            divResultado.innerHTML = `
+                <h3> Cupom Não Fiscal</h3> <br>
+                Subtotal ------ <strong>R$ ${preco.toFixed(2)} </strong> <br>
+                Desconto ------ <strong>R$ ${desconto.toFixed(2)} </strong> <br>
+                Total    ------ <strong>R$ ${valorFinal.toFixed(2)} </strong>
+
+            `;
+            divResultado.className = 'resultado'; 
+            divPaidoResultado.append(divResultado); 
+         })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção Simples</title>
+    <style>
+        .inputNumero{
+            width: 250px;
+            height: 50px;
+            border: none;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            font-size: 15px;
+        }
+        #operacoes input[type='number']{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Faça a sua escolha:</h1>
+
+    <div id="inputs">
+        <input type="number"  id="numeroInteiro1" placeholder="Digite um número inteiro" class="inputNumero" >
+        <input type="number"  id="numeroInteiro2" placeholder="Digite outro número inteiro" class="inputNumero">
+    </div>
+    <div id="operacoes">
+        <h2>Operadores</h2> 
+        <p>No campo abaixo, coloque o número de acordo com a opção que deseja.</p>
+        <p>
+        - Verificar se um dos números lidos é ou não múltiplo do outro <br>
+        - Verificar se os dois números lidos são pares <br>
+        - Verificar se a média dos dois números é maior ou igual a 7. <br>
+        - Sair <br>
+        </p>
+        <input type="number" name="" id="escolha" min="1" max="4" placeholder="Digite a sua opção." class="inputNumero">
+    </div>
+    <button id="processar">Processar</button>
+    <div id="resultado"></div>
+    <script>
+      /*   Implemente um programa que leia dois números inteiros e ofereça opções ao usuário para escolher qual operação deseja realizar, utilizando estruturas de seleção para cada caso:
+        - Verificar se um dos números lidos é ou não múltiplo do outro
+        - Verificar se os dois números lidos são pares
+        - Verificar se a média dos dois números é maior ou igual a 7.
+        - Sair */
+
+        //Declaração de Variáveis para manipulação DOM
+        const inputNumero1 = document.querySelector('#numeroInteiro1'); 
+        const inputNumero2 = document.querySelector('#numeroInteiro2');
+        const inputEscolha = document.querySelector('#escolha');
+        const btnProcessar = document.querySelector('#processar'); 
+        const divResultado = document.querySelector('#resultado')
+
+        function verificarMultiplos(numero1, numero2){
+            if(numero1 % numero2 === 0 || numero2 % numero1 === 0 ){
+                divResultado.innerHTML = 'Um dos números é múltiplo do outro.'
+            }
+            else{
+                divResultado.innerHTML = 'Nunhum dos números é multiplo entre si.'
+            }
+        }
+        function verificarPares(numero1,numero2){
+            if(numero1 % 2 === 0 && numero2 % 2 === 0){
+                divResultado.innerHTML = 'Os dois números são pares.'
+            }
+            else{
+                divResultado.innerHTML = 'O conjunto de números digitados não é par.'
+            }
+        }
+        function mediaMaiorouIguala7(numero1,numero2){
+            let media = (numero1 + numero2)/2;
+            let palavra = media >= 7 ? 'é' : 'não é' ;
+            divResultado. innerHTML = `A média dos números ${palavra} maior ou igual a 7`; 
+        }
+        
+        btnProcessar.addEventListener('click', ()=>{
+            let numero1 = parseInt(inputNumero1.value); 
+            let numero2 = parseInt(inputNumero2.value); 
+            let escolha = parseInt(inputEscolha.value); 
+
+            if(escolha > 0 && escolha<=4){
+                switch(escolha){
+                    case 1:
+                        verificarMultiplos(numero1,numero2); 
+                        break;
+                    case 2: 
+                    verificarPares(numero1,numero2); 
+                    break;
+                    case 3:
+                        mediaMaiorouIguala7(numero1,numero2); 
+                        break;
+                    case 4: 
+                        window.close(); 
+                        break;
+                }
+
+            }
+            else{
+                alert('Selecione uma opção válida.')
+            }
+           
+        })
+
+
+    </script>
+</body>
+</html>
