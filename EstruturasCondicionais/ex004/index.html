@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+<body>
+    <div id="inputs">
+        <input type="number" name="" id="num1" placeholder="Digite o primeiro valor:">
+        <input type="number" name="" id="num2" placeholder="Digite o segundo valor:">
+    </div>
+
+    <button id="diferenca">Mostrar Diferença</button>
+    <script>
+        /*
+        Escreva um programa que leia dois números e apresente a diferença do maior para o menor.
+        */
+       const inputNum1 = document.querySelector('#num1'); 
+       const inputNum2 = document.querySelector('#num2');
+       const btnDiferenca = document.querySelector('#diferenca'); 
+       const elBody = document.querySelector('body'); 
+       const divResultado = document.createElement('div'); 
+
+       btnDiferenca.addEventListener('click', ()=>{
+        let numero1 = inputNum1.value;
+        let numero2 = inputNum2.value;
+
+        let maior = Math.max(numero1,numero2); 
+        let menor = Math.min(numero1,numero2);
+        let diferenca = maior-menor; 
+
+        divResultado.innerHTML= `A diferença entre o maior e o menor número é: ${diferenca}`;
+
+        elBody.appendChild(divResultado);
+       })
+    </script>
+</body>
+</html>

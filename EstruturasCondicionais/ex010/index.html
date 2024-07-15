@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Variaveis A,B,C</h1>
+    <p> Digite valores maiores que zero em cada um dos inputs abaixo e, clique no botão de verificar.</p>
+
+    <div id="inputs">
+        <input type="number"  id="a" placeholder="Digite o valor de A">
+        <input type="number"  id="b" placeholder="Digite o valor de B">
+        <input type="number"  id="c" placeholder="Digite o valor de C">
+    </div>
+    <button id="verificar">Verificar</button>
+
+    <div id="resultado"></div>
+    <script>
+        /*
+            Escrever um programa declarando três variáveis do tipo inteiro (a, b e c). Ler um valor maior que zero para cada variável (se o valor digitado não é válido, mostrar mensagem e ler novamente). Exibe o menor valor lido multiplicado pelo maior e o maior valor dividido pelo menor.
+         */
+        
+       const inputValorA = document.querySelector('#a');
+       const inputValorB = document.querySelector('#b');
+       const inputValorC = document.querySelector('#c');
+       const btnVerificar = document.querySelector('#verificar');
+       const divResultado = document.querySelector('#resultado'); 
+
+    
+       btnVerificar.addEventListener('click', () =>{
+            let A = Number(inputValorA.value);
+            let B = Number(inputValorB.value);
+            let C = Number(inputValorC.value);
+
+            while(A <= 0){
+                A = Number(prompt('Valor digitado para A é inválido! Digite novamente.'))
+            }
+
+            while(B <= 0){
+                B = Number(prompt('Valor digitado para B é inválido! Digite novamente.'))
+            }
+
+            while(C <= 0){
+                C = Number(prompt('Valor digitado para C é inválido! Digite novamente.'))
+            }
+
+            let maior = Math.max(A,B,C); 
+            let menor = Math.min(A,B,C);
+
+            let multiplicacao = menor*maior; 
+            let divisao = maior / menor; 
+
+            divResultado.innerHTML = `
+                Multiplicação do menor (${menor}) pelo maior (${maior}) = ${multiplicacao}
+                <br>
+                Divisão do maior(${maior}) pelo menor (${menor})= ${divisao}
+            `
+        
+
+          
+       })
+   
+    </script>
+
+    
+</body>
+</html>

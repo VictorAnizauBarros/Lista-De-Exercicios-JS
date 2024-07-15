@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Qual é o tipo do Triângulo? </h1>
+    <p>
+        Insira nos inputs abaixo o valor da medida dos lados do triângulo. Após isso, clique no botão "Verificar Triângulo" para verificar qual é o tipo do triâgulo segundo as medidas fornecidas.
+    </p>
+
+    <div id="medidas">
+        <input type="number"  id="a" placeholder="Digite o valor do lado">
+        <input type="number"  id="b" placeholder="Digite o valor do lado">
+        <input type="number"  id="c" placeholder="Digite o valor do lado">
+    </div>
+    <br>
+    <button id="verificarTriangulo">Verificar Triangulo</button>
+
+    <div id="resultado"></div>
+    <script>
+        /*
+             Escreva um programa que leia três valores para os lados de um triângulo (variáveis A, B e C). Verificar se cada lado é menor que a soma dos outros dois lados. Se sim, saber de A==B e se B==C, sendo verdade o triângulo é eqüilátero; Se não, verificar de A==B ou se A==C ou se B==C, sendo verdade o triângulo é isósceles; e caso contrário, o triângulo será escaleno. Caso os lados fornecidos não caracterizarem um triângulo, avisar a ocorrência.
+        */
+       const inputA = document.querySelector('#a');
+       const inputB = document.querySelector('#b');
+       const inputC = document.querySelector('#c');
+       const btnVerificarTriangulo = document.querySelector('#verificarTriangulo'); 
+       const divResultado = document.querySelector('#resultado');
+       
+        function tipoDeTriangulo(A,B,C) {
+            if(A === B && B === C){
+                divResultado.innerHTML = `O triângulo informado é: EQUILATERO.`;
+            }
+            else if(A === B || A === C || B === C){
+                divResultado.innerHTML = `O triângulo informado é ISÓSCELES.`; 
+            }
+            else{
+                divResultado.innerHTML = `O triangulo informado é ESCALENO.`; 
+            }
+        }
+
+       btnVerificarTriangulo.addEventListener('click', () =>{
+        let A = Number(inputA.value);
+        let B = Number(inputB.value);
+        let C = Number(inputC.value);
+
+        if((A+B)>C && (A+C)>B && (B+C)>A){
+            tipoDeTriangulo(A,B,C);
+        }
+        else{
+            divResultado.innerHTML = `Os valores informados não formam um triângulo.`
+        }
+       })
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Positivo ou Negativo? </h1>
+    <p>Insira no input abaixo um número inteiro e, clique no botão "Positivo ou Negativo" para verificar a respeito do seu número.</p>
+
+    <div id="input"></div>
+    <button id="iniciar">INICIAR</button>
+    <script>
+        /*
+            Faça um programa que leia um número inteiro e mostre uma mensagem na tela indicando se este número é positivo ou negativo. Pare a execução do programa quando o usuário requisitar.
+
+        */
+        const divInput = document.querySelector('#input'); 
+        const btnIniciar = document.querySelector('#iniciar'); 
+
+        btnIniciar.addEventListener('click', ()=>{
+            let opcao = 's'
+            while(opcao === 's'){
+                let numero = parseFloat(prompt('Digite um número')); 
+                opcao = (prompt('Quer continuar? S/N').toLowerCase()).toString()
+            }
+
+        
+        })
+    </script>    
+</body>
+</html>

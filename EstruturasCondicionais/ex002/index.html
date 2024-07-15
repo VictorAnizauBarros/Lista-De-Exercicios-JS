@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 02</title>
+</head>
+<body>
+    <h1>Módulo dos Números:</h1>
+    <div id="inputs">
+        <input type="number" name="" id="num" placeholder="Digite um número inteiro">
+    </div>
+    <br>
+    <button id="modulo">Mostrar Módulo</button>
+    <script>
+    /* Desenvolva um programa que leia um número inteiro e exiba o 
+    seu módulo. O módulo de um número x é definido como:
+    x se x é maior ou igual a zero
+    x * (-1) se x é menor que zero*/
+    const inputNum = document.querySelector('#num'); 
+    const btnModulo = document.querySelector('#modulo'); 
+    const elBody = document.querySelector('body')
+
+    btnModulo.addEventListener('click', ()=>{
+        let numero = parseInt(inputNum.value); 
+        let modulo = 0; 
+        if(numero >= 0){
+            modulo = numero; 
+        }
+        else{
+            modulo = numero * (-1); 
+        }
+
+        const divResultado = document.createElement('div'); 
+        divResultado.innerHTML = `O módulo do número ${numero} é: ${modulo}`;
+
+        elBody.append(divResultado); 
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Número maior, menor e igual</h1>
+    <p>Digite abaixo dois números dentro dos inputs e pressione o botão "RESOLVER" para ser informado qual é o maior, o menor ou se os números são iguais.</p>
+    <div id="inputs">
+        <input type="number"  id="num1" placeholder="Digite um número">
+        <input type="number"  id="num2" placeholder="Digite outro número">
+    </div>
+    <button id="resolver">Resolver</button>
+    <div id="resultado"></div>
+    <script>
+        /*
+            Escreva um programa que leia dois números e exiba mensagem informando o valor do maior número e 
+            o valor do menor número. Se os dois números forem iguais, o programa deve exibir mensagem 
+            informando este fato. 
+        */
+       const inputNum1 = document.querySelector('#num1'); 
+       const inputNum2 = document.querySelector('#num2'); 
+       const btnResolver = document.querySelector('#resolver'); 
+       const divResultado = document.querySelector('#resultado'); 
+
+       btnResolver.addEventListener('click', ()=>{
+        const num1 = Number(inputNum1.value); 
+        const num2 = Number(inputNum2.value);
+        let maior = Math.max(num1, num2); 
+        let menor = Math.min(num1, num2);
+        if (maior === menor) {
+            divResultado.innerHTML = `Os números ${num1} e ${num2} são iguais`
+        }
+        else{
+            divResultado.innerHTML = `O maior número é ${maior} e o menor número é ${menor}`
+        }
+        inputNum1.value = '';
+        inputNum2.value = '';
+       });
+
+    </script>
+</body>
+</html>

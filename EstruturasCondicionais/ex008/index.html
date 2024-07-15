@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Código</h1>
+    <p>Insira no input abaixo o código 1, 2, ou 3.Pressione o botão "VERIFICAR" para verificar se o código digitado é válido ou inválido.
+    </p>
+    <input type="number"  id="codigo" placeholder="Digite o código">
+    <button id="verificar">Verificar</button>
+
+    <div id="resultado"></div>
+    <script>
+        /*
+            Escreva um programa que leia um número inteiro (variável CODIGO). Verificar se o código é igual a 1,igual a 2 ou igual a 3. Caso não seja, apresentar a mensagem “Código inválido”. Ao ser verificado o código e constatado que é um valor válido, o programa deve verificar cada código em separado para determinar seu valor por extenso, ou seja, apresentar a mensagem “um”, ”dois” ou “três”. (Utilizar o comando Switch).
+        */
+       const inputCodigo = document.querySelector('#codigo'); 
+       const btnVerificar = document.querySelector('#verificar'); 
+       const divResultado = document.querySelector('#resultado'); 
+
+       btnVerificar.addEventListener('click', () =>{
+        const codigo = parseInt(inputCodigo.value); 
+        if(codigo === 1 || codigo === 2 || codigo === 3){
+            divResultado.innerHTML = 'Código Válido!'
+            switch(codigo){
+            case 1:
+                divResultado.innerHTML += 'Um';
+                break; 
+            case 2: 
+                divResultado.innerHTML += 'Dois';
+                break;
+            case 3:
+                divResultado.innerHTML += 'Três';
+                break;
+            }
+        }
+        else{
+            divResultado.innerHTML = 'Código Inválido! Tente novamente.';
+        }
+        inputCodigo.value = ''
+        }
+        
+       )
+    </script>
+</body>
+</html>

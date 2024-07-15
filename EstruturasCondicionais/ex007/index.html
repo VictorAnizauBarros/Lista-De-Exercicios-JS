@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Está entre 0 e 9?</h1>
+    <p>
+        Digite no campo abaixo um número INTEIRO entre 0 e 9 e clique no botão "VERIFICAR" para verificar se o valor está dentro dessa faixa. 
+    </p>
+    <input type="number"  id="numero" placeholder="Digite um valor inteiro">
+    <button id="verificar">Verificar</button>
+    <div id="resultado"></div>
+    <script>
+        /*
+            Escreva um programa que leia um número inteiro. Verificar por meio de condição se o valor fornecido está na faixa entre 0 (zero) e 9 (nove). Caso o valor fornecido esteja dentro da faixa, apresentar a mensagem “valor válido”. Caso contrário, apresentar a mensagem “valor inválido”.
+        */
+        const inputNumero = document.querySelector('#numero'); 
+        const btnVerificar = document.querySelector('#verificar'); 
+        const divResultado = document.querySelector('#resultado'); 
+
+        btnVerificar.addEventListener('click', () => {
+            const numero = parseInt(inputNumero.value);
+
+            if(numero >= 0 && numero <= 9){
+                divResultado.innerHTML = 'Valor válido'; 
+            }
+            else{
+                divResultado.innerHTML = 'Valor inválido';
+            }
+        })
+    </script>
+</body>
+</html>
